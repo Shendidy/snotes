@@ -2,12 +2,10 @@
 
 one:
   owner_id: 1
-  note_title: MyString
-  note_body: MyText
-  note_category: 1
+  name: MyString
+  description: MyText
 
 two:
   owner_id: 1
-  note_title: MyString
-  note_body: MyText
-  note_category: 1
+  name: MyString
+  description: MyText
