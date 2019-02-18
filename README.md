@@ -46,7 +46,8 @@ Tables:
 
   3- Categorie
     - category_id:integer (key)**
+    - owner_id:integer *
     - name:string
-    - description:string
+    - description:text
     - create_date:timestamp
     - update_date:timestamp
