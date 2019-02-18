@@ -28,6 +28,7 @@ Things you may want to cover:
 
 
 Tables:
+
   1- User
     - user_id:integer (key)*
     - user_name:string
@@ -35,6 +36,8 @@ Tables:
     - user_password:string
     - create_date:timestamp
     - update_date:timestamp
+
+
   2- Note
     - note_id:integer (key)
     - owner_id:integer *
@@ -43,6 +46,7 @@ Tables:
     - note_category:integer **
     - create_date:timestamp
     - update_date:timestamp
+
 
   3- Categorie
     - category_id:integer (key)**
