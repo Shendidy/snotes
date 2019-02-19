@@ -1,7 +1,7 @@
 <h1> Here you'll be able to interact with the application by: </h1>
-<ul>
-  <li>Viewing available notes</li>
-  <li>Adding a new note</li>
-  <li>Editting an existing note</li>
-  <li>Deleting an existing note</li>
-</ul>
+<hr />
+<% @notes.each do |note| %>
+  <h3>Note Title:</h3>
+  <p><%= link_to note[:note_title],note %></p>
+  <br />
+<% end %>
