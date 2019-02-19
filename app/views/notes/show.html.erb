@@ -1,5 +1,5 @@
 <h3><%= @note[:note_title] %></h3>
-<small> <%= @note[:created_at].strftime("%b %d. %Y") %> </small>
+<small> <%= @note[:created_at].strftime("%b %d. %Y - %H:%M:%S") %> </small>
 <hr>
 <h3>Note Body:</h3>
 <p><%= @note[:note_body] %></p>
@@ -8,4 +8,4 @@
 <h3>Note Category:</h3>
 <p><%= @note[:note_category_id] %></p>
 <br />
-<small><a href='../notes'>Back to notes</a></small>
+<small><%= link_to 'Back to notes', action: 'index' %></small>

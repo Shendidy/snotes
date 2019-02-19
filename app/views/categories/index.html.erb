@@ -1,11 +1,5 @@
-<h1>Categories created by all users</h1>
-<br />
+<h1>This is a list of all catigories available.</h1>
+<hr />
 <% @categories.each do |category| %>
-  <h3>Owner ID:</h3>
-  <p><%= category[:owner_id] %></p>
-  <h3>Name:</h3>
-  <p><%= category[:name] %></p>
-  <h3>Description:</h3>
-  <p><%= category[:description] %></p>
-  <hr>
+  <p><%= link_to category[:name], category %><small> (<%= category[:created_at].strftime("%b %d. %Y") %>)</small></p>
 <% end %>
