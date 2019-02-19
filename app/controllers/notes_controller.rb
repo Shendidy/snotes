@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.all
+    @notes = Note.all # Note here is referring to the model
   end
 
   def show
@@ -8,6 +8,11 @@ class NotesController < ApplicationController
   end
 
   def new
+    @note = Note.new
+    @categories = Category.all # Category here is referring to the model
+  end
+
+  def create
   end
 
   def edit
