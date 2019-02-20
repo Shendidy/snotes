@@ -7,9 +7,19 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def edit
+  def new
+    @catigories = Catigory.new
   end
 
-  def new
+  def create
+    @category = Catigory.new(category_params)
   end
+
+  def edit
+  end
+end
+
+private
+def category_params
+  params.require(:category), permit(:name, :description)
 end

@@ -10,7 +10,7 @@
     <%= note.text_area :note_body %><br />
   </p>
   <p>
-    <%= note.select :id, Category.all.collect{ |x| [x.name, x.id]}, { :include_blank => "Select a category"} %><br />
+    <%= note.select :note_category_id, Category.all.collect{ |x| [x.name, x.id]}, { :include_blank => "Select a category"} %><br />
   </p>
   <p>
     <%= note.submit 'Add note' %>

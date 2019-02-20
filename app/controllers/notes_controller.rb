@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.all # Note here is referring to the model
+    @notes = Note.all.order("updated_at DESC") # Note here is referring to the model
   end
 
   def show
@@ -13,6 +13,14 @@ class NotesController < ApplicationController
   end
 
   def create
+    @note = Note.new(note_params)
+    if @note.save
+      flash[:alert] = "Your note has been saved"
+      redirect_to :action => 'index'
+    else
+      flash[:alert] = "Couldn't save your note, please try again"
+      render 'new'
+    end
   end
 
   def edit
@@ -24,4 +32,8 @@ class NotesController < ApplicationController
   def update
   end
 
+  private
+  def note_params
+    params.require(:note).permit(:note_title, :note_body, :note_category_id)
+  end
 end

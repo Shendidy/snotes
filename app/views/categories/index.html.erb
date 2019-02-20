@@ -1,4 +1,7 @@
 <h1>This is a list of all catigories available.</h1>
+<small><%= link_to "Creae new category", new_category_path %></small>
+<hr />
+<ol>
 <hr />
 <% @categories.each do |category| %>
   <p><%= link_to category[:name], category %><small> (<%= category[:created_at].strftime("%b %d. %Y") %>)</small></p>
