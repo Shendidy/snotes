@@ -1,0 +1,19 @@
+<h1>Edit your note</h1>
+<hr />
+<%= form_for @note do |note| %>
+  <p>
+    <%= note.label :note_title %><br />
+    <%= note.text_field :note_title %><br />
+  </p>
+  <p>
+    <%= note.label :note_body %><br />
+    <%= note.text_area :note_body %><br />
+  </p>
+  <p>
+    <%= note.select :note_category_id, Category.all.collect{ |x| [x.name, x.id]}, { :include_blank => "Select a category"} %><br />
+  </p>
+  <p>
+    <%= note.submit 'Edit note' %>
+<% end %>
+<hr />
+<%= link_to 'Cancel', note_path %>

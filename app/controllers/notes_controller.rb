@@ -24,12 +24,29 @@ class NotesController < ApplicationController
   end
 
   def edit
-  end
-
-  def delete
+    @note = Note.find(params[:id])
   end
 
   def update
+    @note = Note.find(params[:id])
+    if @note.update_attributes(note_params)
+      flash[:alert] = "Your updated note has been saved."
+      redirect_to note_path
+    else
+      flash[:alert] = "Couldn't update your note, please try again or cancel!"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @note = Note.find(params[:id])
+    if @note.destroy
+      flash[:alert] = "Your note has been deleted successfully"
+      redirect_to :action => 'index'
+    else
+      flash[:alert] = "We couldn't delete your note, please try again!"
+      render 'show'
+    end
   end
 
   private
