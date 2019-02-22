@@ -1,5 +1,8 @@
-<h1>This is a list of all catigories available.</h1>
-<small><%= link_to "Creae new category", new_category_path %></small>
+<h1>This is a list of all catigories available:</h1>
+<table>
+  <td><small><%= link_to "Creae new category", new_category_path %></small></td>
+  <td><small><%= link_to "View available notes", notes_path %></small></td>
+</table>
 <hr />
 <ol>
 <% @categories.each do |category| %>

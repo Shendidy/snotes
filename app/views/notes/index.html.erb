@@ -1,5 +1,8 @@
 <h1> This is a list of all notes available: </h1>
-<small><%= link_to "Creae new note", new_note_path %></small>
+<table>
+  <td><small><%= link_to "Create new note", new_note_path %></small></td>
+  <td><small><%= link_to "View abailable categories", categories_path %></small></td>
+</table>
 <hr />
 <ol>
 <% @notes.each do |note| %>
