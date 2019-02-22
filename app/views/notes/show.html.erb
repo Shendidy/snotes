@@ -1,4 +1,4 @@
-<h3><%= @note[:note_title] %></h3>
+<h3><%= @note[:title] %></h3>
 <small>
   <%= @note[:created_at].strftime("%b %d. %Y - %H:%M:%S") %>
   <% if @note[:created_at] != @note[:updated_at] %>
@@ -7,11 +7,11 @@
 </small>
 <hr>
 <h3>Note Body:</h3>
-<p><%= @note[:note_body] %></p>
+<p><%= @note[:body] %></p>
 <h3>Owner ID:</h3>
 <p><%= @note[:owner_id] %></p>
 <h3>Note Category:</h3>
-<p><%= @note[:note_category_id] %></p>
+<p><%= link_to @category[:name],category_path(:id => @note.category_id) %></p>
 <hr />
 <small><%= link_to 'Edit note', action: 'edit' %> -
   <%= link_to 'Back to notes', action: 'index' %> -

@@ -1,24 +1,28 @@
 class NotesController < ApplicationController
+
   def index
     @notes = Note.all.order("updated_at DESC") # Note here is referring to the model
   end
 
   def show
     @note = Note.find(params[:id])
+    @category = Category.find(@note[:category_id])
   end
 
   def new
     @note = Note.new
     @categories = Category.all # Category here is referring to the model
+    # @categories.order("name")
   end
 
   def create
     @note = Note.new(note_params)
+    @note.owner_id = 1
     if @note.save
       flash[:alert] = "Your note has been saved"
       redirect_to :action => 'index'
     else
-      flash[:alert] = "Couldn't save your note, please try again"
+      flash.now[:alert] = "Error saving your new note, please try again!"
       render 'new'
     end
   end
@@ -33,7 +37,7 @@ class NotesController < ApplicationController
       flash[:alert] = "Your updated note has been saved."
       redirect_to note_path
     else
-      flash[:alert] = "Couldn't update your note, please try again or cancel!"
+      flash.now[:alert] = "Couldn't update your note, please try again or cancel!"
       render 'edit'
     end
   end
@@ -44,13 +48,13 @@ class NotesController < ApplicationController
       flash[:alert] = "Your note has been deleted successfully"
       redirect_to :action => 'index'
     else
-      flash[:alert] = "We couldn't delete your note, please try again!"
+      flash.now[:alert] = "We couldn't delete your note, please try again!"
       render 'show'
     end
   end
 
   private
   def note_params
-    params.require(:note).permit(:note_title, :note_body, :note_category_id)
+    params.require(:note).permit(:title, :body, :category_id)
   end
 end
